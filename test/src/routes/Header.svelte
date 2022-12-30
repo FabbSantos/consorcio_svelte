@@ -1,129 +1,98 @@
 <script>
-	import { page } from '$app/stores';
-	import logo from '$lib/images/svelte-logo.svg';
-	import github from '$lib/images/github.svg';
+	import KawaLogo  from '$lib/images/logo_kawsaki-2.webp';
 </script>
 
-<header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div>
-
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">About</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">Sverdle</a>
-			</li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
-
-	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
-	</div>
-</header>
+    <header>
+      <div class="logo">
+        <a href="/" target="_blank">
+          <img src={ KawaLogo } alt="Kawasaki Logo">
+        </a>
+      </div>
+      <ul>
+        <li>
+          <a href="/" target="_blank">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="/" target="_blank">
+            Quem Somos
+          </a>
+        </li>
+        <li>
+          <a href="/" target="_blank">
+            Como Funciona
+          </a>
+        </li>
+        <li>
+          <a href="/" target="_blank">
+            <button class="sim">Faça uma Simulação</button> 
+          </a>
+        </li>
+      </ul>
+    </header>
 
 <style>
 	header {
-		display: flex;
-		justify-content: space-between;
-	}
+  display: flex;
+  background: #000;
+}
 
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
+header .logo a {
+  display: inline-block;
+  padding: 10px 10px 7px 20px;
+}
+header .logo {
+  margin-left: 12em;
+}
+@media (max-width: 768px){
+  header .logo {
+    margin-left: 0;
+  }
+}
 
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
+header ul {
+  margin: 0 auto;
+  max-width: 70vw; 
+  padding: 3px 10px 0 0;
+  list-style: none;
+  flex: 1;
+  text-align: right;
+}
 
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
-	}
+header li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
 
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
-	}
+header li a {
+  display: inline-block;
+  color: #fff ;
+  padding: 15px 10px;
+  text-decoration: none;
+}
 
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
+header li a:hover {
+  text-decoration: underline;
+}
+header li a button {
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
 
-	path {
-		fill: var(--background);
-	}
+  outline: none;
+  background-color: transparent;
+  border: 1px solid #fff;
 
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
-	}
+  cursor: pointer;
+  padding: 6px 20px;
+  border-radius: 1em;
 
-	li {
-		position: relative;
-		height: 100%;
-	}
-
-	li[aria-current='page']::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
-	}
-
-	nav a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 0.5rem;
-		color: var(--color-text);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
-	}
-
-	a:hover {
-		color: var(--color-theme-1);
-	}
+  transition: 0.3s ease;
+}
+header li a button:hover {
+  background-color: white;
+  color: black;  
+}
 </style>
